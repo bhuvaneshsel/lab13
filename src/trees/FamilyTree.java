@@ -43,9 +43,9 @@ public class FamilyTree
         TreeNode getNodeWithName(String targetName)
         {
             // Does this node have the target name?
-            if (this.name.equals(targetName))
+            if (this.name.equals(targetName)) {
                 return this;
-                    
+            }
             // No, recurse. Check all children of this node.
             for (TreeNode child: children)
             {
@@ -67,11 +67,16 @@ public class FamilyTree
         ArrayList<TreeNode> collectAncestorsToList()
         {
             ArrayList<TreeNode> ancestors = new ArrayList<>();
-
+            
             // ?????  Collect ancestors of this TreeNode into the array list. HINT: going up
             // the nodes of a tree is like traversing a linked list. If that isn’t clear,
             // draw a tree, mark any leaf node, and then mark its ancestors in order from
             // recent to ancient. Expect a question about this on the final exam.
+            TreeNode current = this.parent;
+            while (current!= null) {
+            	ancestors.add(current);
+            	current = current.parent;
+            }
 
             return ancestors;
         }
@@ -95,7 +100,7 @@ public class FamilyTree
 
 	private TreeNode			root;
 	
-	
+
 	//
 	// Displays a file browser so that user can select the family tree file.
 	//
